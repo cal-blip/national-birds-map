@@ -65,4 +65,15 @@
     for (const country in birdData) {
       const bird = birdData[country];
       const marker = L.marker([Math.random() * 180 - 90, Math.random() * 360 - 180]).addTo(map);
-      marker
+      marker.bindPopup(`
+        <h3>${bird.name}</h3>
+        <img src="${bird.image}" alt="${bird.name}" style="width:100px;">
+        <audio controls>
+          <source src="${bird.sound}" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      `);
+    }
+  </script>
+</body>
+</html>
