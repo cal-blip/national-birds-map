@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National Birds of the World</title>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 600px;
+      width: 100%;
+    }
+    .bird-info {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .bird-info img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .bird-info audio {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>National Birds of the World</h1>
+  <div id="map"></div>
+  <div id="bird-details" class="bird-info"></div>
 
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Country Data -->
+  <script>
+    const birdData = {
+      "USA": {
+        name: "Bald Eagle",
+        image: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Bald_Eagle_%2826571707529%29.jpg",
+        sound: "https://www.xeno-canto.org/sounds/uploaded/ABCDEFG/12345.mp3" // Replace with actual sound URL
+      },
+      "India": {
+        name: "Indian Peafowl",
+        image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Peacock_India.jpg",
+        sound: "https://www.xeno-canto.org/sounds/uploaded/ABCDEFG/67890.mp3" // Replace with actual sound URL
+      },
+      "Australia": {
+        name: "Emu",
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Emu_1_-_Tidbinbilla.jpg",
+        sound: "https://www.xeno-canto.org/sounds/uploaded/ABCDEFG/54321.mp3" // Replace with actual sound URL
+      },
+      // Add more countries and birds here
+    };
+
+    // Initialize the map
+    const map = L.map('map').setView([20, 0], 2);
+
+    // Add a tile layer (map background)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Add markers for each country
+    for (const country in birdData) {
+      const bird = birdData[country];
+      const marker = L.marker([Math.random() * 180 - 90, Math.random() * 360 - 180]).addTo(map);
+      marker
