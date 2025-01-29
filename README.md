@@ -8,7 +8,7 @@ Welcome to the **National Birds Interactive Map**! This project showcases the na
 - **Responsive Design**: Works on both desktop and mobile devices.
 
 ## How to Use
-1. Open the live demo: [https://username.github.io/national-birds-map](https://username.github.io/national-birds-map).
+1. Open the live demo: [https://cal-blip.github.io/national-birds-map](https://cal-blip.github.io/national-birds-map).
 2. Click on a marker to see the national bird's details.
 3. Enjoy learning about the birds!
 
